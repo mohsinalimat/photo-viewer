@@ -60,7 +60,7 @@ class PhotoViewerViewController: InteractiveViewController , UIScrollViewDelegat
         doubleTap.numberOfTapsRequired = 2
         scrollView.addGestureRecognizer(doubleTap)
         //Single Tap 
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleSingleScrollView(recognizer:)))
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTapScrollView(recognizer:)))
         singleTap.numberOfTapsRequired = 1
         scrollView.addGestureRecognizer(singleTap)
         
@@ -71,25 +71,39 @@ class PhotoViewerViewController: InteractiveViewController , UIScrollViewDelegat
         return imageView
     }
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        hideViews(hide: true)
+        hideViews(hidden: true , withAnimation: false)
     }
     func handleDoubleTapScrollView(recognizer: UITapGestureRecognizer) {
         if scrollView.zoomScale == 1 {
             scrollView.zoom(to: zoomRectForScale(scale: scrollView.maximumZoomScale, center: recognizer.location(in: recognizer.view)), animated: true)
-            hideViews(hide: true)
+            hideViews(hidden: true, withAnimation: false)
         } else {
             scrollView.setZoomScale(1, animated: true)
         }
     }
     
-    func handleDoubleSingleScrollView(recognizer: UITapGestureRecognizer) {
-        hideViews(hide: !actionView.isHidden)
+    func handleSingleTapScrollView(recognizer: UITapGestureRecognizer) {
+        if scrollView.zoomScale == 1 {
+            hideViews(hidden: !actionView.isHidden)
+        } else {
+            UIView.animate(withDuration: 1, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                 self.scrollView.zoomScale = 1
+            }, completion: { (void) in
+                self.hideViews(hidden: false)
+            })
+        }
     }
     
-    func hideViews(hide: Bool) {
-        UIView.animate(withDuration: 3) {
-            self.actionView.isHidden = hide
-            self.navigationBar?.isHidden = hide
+    func hideViews(hidden: Bool , withAnimation: Bool = true) {
+        
+        if withAnimation == true {
+            UIView.transition(with: view, duration: 0.5, options: UIViewAnimationOptions.transitionCrossDissolve, animations: {() -> Void in
+                self.actionView.isHidden = hidden
+                self.navigationBar?.isHidden = hidden
+            }, completion: { _ in })
+        } else {
+            self.actionView.isHidden = hidden
+            self.navigationBar?.isHidden = hidden
         }
     }
     
