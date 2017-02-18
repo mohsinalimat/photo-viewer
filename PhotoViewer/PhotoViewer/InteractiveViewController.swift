@@ -99,6 +99,7 @@ extension InteractiveViewController: UIGestureRecognizerDelegate {
         window.rootViewController = self
         window.backgroundColor = UIColor.clear
         window.makeKeyAndVisible()
+        window.windowLevel = UIWindowLevelStatusBar
         addViewControllerToWindowConstraints(self)
         
         topConstraint?.constant = UIScreen.main.bounds.height
