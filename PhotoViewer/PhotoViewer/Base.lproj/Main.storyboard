@@ -78,15 +78,55 @@
                                     <constraint firstItem="dql-Hj-DWw" firstAttribute="top" secondItem="wzL-dt-sr9" secondAttribute="top" id="kJa-mo-sYf"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HhC-Oe-UKY">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0F6-aI-7UI">
+                                        <rect key="frame" x="12" y="5" width="30" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="Like">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcA-ER-wex">
+                                        <rect key="frame" x="152.5" y="5.5" width="70" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="Comment">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eU2-Qu-fFq">
+                                        <rect key="frame" x="321" y="5" width="42" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="Share">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="0F6-aI-7UI" firstAttribute="centerY" secondItem="HhC-Oe-UKY" secondAttribute="centerY" id="3Hg-gO-Qw8"/>
+                                    <constraint firstItem="eU2-Qu-fFq" firstAttribute="centerY" secondItem="HhC-Oe-UKY" secondAttribute="centerY" id="6Ib-GJ-hNq"/>
+                                    <constraint firstItem="LcA-ER-wex" firstAttribute="centerX" secondItem="HhC-Oe-UKY" secondAttribute="centerX" id="Cwt-Po-OBL"/>
+                                    <constraint firstAttribute="height" constant="40" id="SnY-lp-hiM"/>
+                                    <constraint firstItem="0F6-aI-7UI" firstAttribute="leading" secondItem="HhC-Oe-UKY" secondAttribute="leading" constant="12" id="VKl-r9-XcD"/>
+                                    <constraint firstItem="LcA-ER-wex" firstAttribute="centerY" secondItem="HhC-Oe-UKY" secondAttribute="centerY" id="n2o-CV-yYd"/>
+                                    <constraint firstAttribute="trailing" secondItem="eU2-Qu-fFq" secondAttribute="trailing" constant="12" id="qyb-fN-x0c"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="wzL-dt-sr9" firstAttribute="leading" secondItem="YJG-nt-FpO" secondAttribute="leading" id="76c-bj-CIi"/>
+                            <constraint firstAttribute="bottom" secondItem="HhC-Oe-UKY" secondAttribute="bottom" id="Fb6-5M-wgK"/>
                             <constraint firstAttribute="trailing" secondItem="wzL-dt-sr9" secondAttribute="trailing" id="QsI-as-9fD"/>
+                            <constraint firstItem="HhC-Oe-UKY" firstAttribute="leading" secondItem="YJG-nt-FpO" secondAttribute="leading" id="Xx2-g8-chR"/>
                             <constraint firstAttribute="bottom" secondItem="wzL-dt-sr9" secondAttribute="bottom" id="pTe-BY-aLq"/>
+                            <constraint firstAttribute="trailing" secondItem="HhC-Oe-UKY" secondAttribute="trailing" id="sh8-cZ-BwC"/>
                             <constraint firstItem="wzL-dt-sr9" firstAttribute="top" secondItem="YJG-nt-FpO" secondAttribute="top" id="ynp-hu-vbU"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionView" destination="HhC-Oe-UKY" id="TEH-Uq-jzN"/>
                         <outlet property="imageView" destination="dql-Hj-DWw" id="RgV-Wz-Ldp"/>
                         <outlet property="scrollView" destination="wzL-dt-sr9" id="3hc-8R-hd6"/>
                     </connections>
