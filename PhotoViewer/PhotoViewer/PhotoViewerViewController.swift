@@ -17,7 +17,8 @@ class PhotoViewerViewController: InteractiveViewController , UIScrollViewDelegat
     
     var hideViews: Bool = true
     var image : UIImage!
-    
+    var navigationBar: UINavigationBar?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.image = image
@@ -33,16 +34,16 @@ class PhotoViewerViewController: InteractiveViewController , UIScrollViewDelegat
     }
     
     func initNavbar() {
-        let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 44))
-        self.view.addSubview(navBar);
+        navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 44))
+        self.view.addSubview(navigationBar!);
         let navItem = UINavigationItem(title: "");
-        navBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
-        navBar.tintColor = .white
+        navigationBar?.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        navigationBar?.tintColor = .white
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action:  #selector(doneTapped(sender:)))
-        navItem.leftBarButtonItem = doneButton
+        navItem.rightBarButtonItem = doneButton
         
-        navBar.setItems([navItem], animated: false);
-        transparentNavbar(bar: navBar)
+        navigationBar?.setItems([navItem], animated: false);
+        transparentNavbar(bar: navigationBar!)
     }
     
     func transparentNavbar(bar: UINavigationBar) {
@@ -86,8 +87,9 @@ class PhotoViewerViewController: InteractiveViewController , UIScrollViewDelegat
     }
     
     func hideViews(hide: Bool) {
-        UIView.animate(withDuration: 5) {
+        UIView.animate(withDuration: 3) {
             self.actionView.isHidden = hide
+            self.navigationBar?.isHidden = hide
         }
     }
     
