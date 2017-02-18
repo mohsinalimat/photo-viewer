@@ -62,26 +62,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dql-Hj-DWw">
-                                <rect key="frame" x="67" y="269.5" width="240" height="128"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzL-dt-sr9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dql-Hj-DWw">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="QBv-uz-Fxx"/>
-                                    <constraint firstAttribute="width" constant="240" id="fyC-GS-umV"/>
+                                    <constraint firstAttribute="trailing" secondItem="dql-Hj-DWw" secondAttribute="trailing" id="CqN-ny-DuJ"/>
+                                    <constraint firstItem="dql-Hj-DWw" firstAttribute="centerX" secondItem="wzL-dt-sr9" secondAttribute="centerX" id="Ues-sd-PGF"/>
+                                    <constraint firstItem="dql-Hj-DWw" firstAttribute="centerY" secondItem="wzL-dt-sr9" secondAttribute="centerY" id="VGq-QL-xee"/>
+                                    <constraint firstAttribute="bottom" secondItem="dql-Hj-DWw" secondAttribute="bottom" id="gdS-gl-HiF"/>
+                                    <constraint firstItem="dql-Hj-DWw" firstAttribute="leading" secondItem="wzL-dt-sr9" secondAttribute="leading" id="kH4-2e-iLZ"/>
+                                    <constraint firstItem="dql-Hj-DWw" firstAttribute="top" secondItem="wzL-dt-sr9" secondAttribute="top" id="kJa-mo-sYf"/>
                                 </constraints>
-                            </imageView>
+                            </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="dql-Hj-DWw" firstAttribute="centerX" secondItem="YJG-nt-FpO" secondAttribute="centerX" id="g0r-9M-TIj"/>
-                            <constraint firstItem="dql-Hj-DWw" firstAttribute="centerY" secondItem="YJG-nt-FpO" secondAttribute="centerY" id="mqn-pH-zDY"/>
+                            <constraint firstItem="wzL-dt-sr9" firstAttribute="leading" secondItem="YJG-nt-FpO" secondAttribute="leading" id="76c-bj-CIi"/>
+                            <constraint firstAttribute="trailing" secondItem="wzL-dt-sr9" secondAttribute="trailing" id="QsI-as-9fD"/>
+                            <constraint firstAttribute="bottom" secondItem="wzL-dt-sr9" secondAttribute="bottom" id="pTe-BY-aLq"/>
+                            <constraint firstItem="wzL-dt-sr9" firstAttribute="top" secondItem="YJG-nt-FpO" secondAttribute="top" id="ynp-hu-vbU"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="dql-Hj-DWw" id="RgV-Wz-Ldp"/>
+                        <outlet property="scrollView" destination="wzL-dt-sr9" id="3hc-8R-hd6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSA-qe-C39" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="770" y="37"/>
+            <point key="canvasLocation" x="768.79999999999995" y="36.431784107946029"/>
         </scene>
     </scenes>
     <resources>
