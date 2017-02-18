@@ -15,7 +15,6 @@ class PhotoViewerViewController: InteractiveViewController , UIScrollViewDelegat
     @IBOutlet weak var actionView: UIView!
    
     
-    var hideViews: Bool = true
     var image : UIImage!
     var navigationBar: UINavigationBar?
 
@@ -71,19 +70,20 @@ class PhotoViewerViewController: InteractiveViewController , UIScrollViewDelegat
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
-    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        hideViews(hide: true)
+    }
     func handleDoubleTapScrollView(recognizer: UITapGestureRecognizer) {
         if scrollView.zoomScale == 1 {
             scrollView.zoom(to: zoomRectForScale(scale: scrollView.maximumZoomScale, center: recognizer.location(in: recognizer.view)), animated: true)
+            hideViews(hide: true)
         } else {
             scrollView.setZoomScale(1, animated: true)
         }
     }
     
     func handleDoubleSingleScrollView(recognizer: UITapGestureRecognizer) {
-        hideViews(hide: hideViews)
-        hideViews = !hideViews
-
+        hideViews(hide: !actionView.isHidden)
     }
     
     func hideViews(hide: Bool) {
