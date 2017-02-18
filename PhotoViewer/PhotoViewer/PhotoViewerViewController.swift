@@ -106,6 +106,10 @@ class PhotoViewerViewController: InteractiveViewController , UIScrollViewDelegat
             self.navigationBar?.isHidden = hidden
         }
     }
+    override func panGestureAction(_ sender: UIPanGestureRecognizer) {
+        super.panGestureAction(sender)
+        hideViews(hidden: true , withAnimation: false)
+    }
     
     func zoomRectForScale(scale: CGFloat, center: CGPoint) -> CGRect {
         var zoomRect = CGRect.zero
